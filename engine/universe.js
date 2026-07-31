@@ -24,7 +24,7 @@ export class Universe {
     updateChemistry(this.particles);
     updateProtoLife(this);
 
-    // Remove particles with no energy
+    // Remove dead particles
     this.particles = this.particles.filter(p => p.energy > 1);
   }
 

@@ -1,6 +1,7 @@
 import { Particle } from './particle.js';
 import { updatePhysics } from './physics.js';
 import { updateChemistry } from './chemistry.js';
+import { updateProtoLife } from './protolife.js';
 
 export class Universe {
   constructor(width, height, count = 600) {
@@ -21,6 +22,10 @@ export class Universe {
   update() {
     updatePhysics(this.particles, this.width, this.height);
     updateChemistry(this.particles);
+    updateProtoLife(this);
+
+    // Remove particles with no energy
+    this.particles = this.particles.filter(p => p.energy > 1);
   }
 
   get totalEnergy() {
@@ -29,5 +34,9 @@ export class Universe {
 
   get totalBonds() {
     return this.particles.reduce((s, p) => s + p.bonds.size, 0) / 2;
+  }
+
+  get carbonCount() {
+    return this.particles.filter(p => p.type === 'C').length;
   }
 }

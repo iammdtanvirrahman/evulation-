@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  background: #02040a;
+  font-family: Consolas, monospace;
+  color: #d0e6ff;
+}
+
+canvas {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at center, #07111f 0%, #02040a 100%);
+}
+
+#hud {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(120, 180, 255, 0.18);
+  padding: 14px 16px;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  min-width: 220px;
+}
+
+#hud h1 {
+  font-size: 22px;
+  margin-bottom: 6px;
+  color: #7fd1ff;
+}
+
+#hud p {
+  font-size: 13px;
+  margin: 3px 0;
+}
